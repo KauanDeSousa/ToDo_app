@@ -1,0 +1,5 @@
+singleQuote: true
+semi: true
+printWidth: 150
+tabWidth: 4
+trailingComma: 'es5'
