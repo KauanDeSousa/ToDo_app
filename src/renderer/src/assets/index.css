@@ -1,0 +1,548 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    #root {
+        @apply h-full;
+    }
+
+    html,
+    body {
+        @apply h-full;
+
+        @apply select-none;
+
+        @apply bg-transparent;
+
+        @apply font-mono antialiased text-white;
+
+        @apply overflow-hidden;
+    }
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 100;
+    src: url('../fonts/Poppins-Thin.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../fonts/Poppins-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400; /* Normal or regular weight */
+    src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500; /* Normal or regular weight with italic style */
+    src: url('../fonts/Poppins-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700; /* Normal or regular weight with italic style */
+    src: url('../fonts/Poppins-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 900; /* Normal or regular weight with italic style */
+    src: url('../fonts/Poppins-Black.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 100;
+    src: url('../fonts/Poppins-ThinItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 300;
+    src: url('../fonts/Poppins-LightItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 400; /* Normal or regular weight */
+    src: url('../fonts/Poppins-Italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 500; /* Normal or regular weight with italic style */
+    src: url('../fonts/Poppins-MediumItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 700; /* Normal or regular weight with italic style */
+    src: url('../fonts/Poppins-BoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 900; /* Normal or regular weight with italic style */
+    src: url('../fonts/Poppins-BlackItalic.ttf') format('truetype');
+}
+
+* {
+    font-family: 'Poppins';
+    font-style: normal;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    outline: none;
+    color: #858585;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.modal_opacity {
+    animation-name: animationOpacity;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+
+.modal_top {
+    animation-name: animationTop;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+
+@keyframes animationOpacity {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes animationTop {
+    from {
+        top: -60px;
+    }
+
+    to {
+        top: 0;
+    }
+}
+
+.disabled-input {
+    background-color: #fff;
+    border-color: rgb(233, 236, 239);
+}
+
+/* Tables */
+
+.item_mesa {
+    width: 104px;
+    background-color: #6dd25d;
+    color: #fff;
+    font-size: 12px;
+    float: left;
+    margin: 0px 5px 15px 5px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px 0px;
+    height: 118px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.item_mesa:hover {
+    filter: brightness(85%);
+}
+
+.PENDENTE {
+    background-color: #d01f1f;
+}
+
+.EXECUTANDO {
+    background-color: #6daeea;
+}
+
+.ADICIONAL {
+    background-color: #fec020;
+}
+
+.FECHADO {
+    background-color: #c7c7c7;
+}
+
+.COMANDA {
+    background-color: #858585;
+    color: #ffffff;
+}
+
+.CANCELADO {
+    color: #9a9a9a;
+    border: 1px solid red;
+    background-color: white;
+}
+
+.FINALIZADO {
+    color: white;
+    background-color: #6dd25d;
+}
+
+.change_tables::after {
+    white-space: nowrap;
+    pointer-events: none;
+    content: 'Trocar mesa';
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #ffffff;
+    font-size: 12px;
+    opacity: 0;
+    padding: 10px 8px;
+    border-radius: 4px;
+    position: absolute;
+    right: 55px;
+    z-index: 1000000;
+}
+
+.change_tables:hover::after {
+    opacity: 1;
+}
+
+.change_tables:before {
+    content: '';
+    border-style: solid;
+    position: absolute;
+    border-width: 8px;
+    border-color: transparent transparent transparent rgba(0, 0, 0, 0.85);
+    left: -3px;
+    top: 9px;
+    opacity: 0;
+}
+
+.change_tables:hover::before {
+    opacity: 1;
+    z-index: 1000000;
+}
+
+.reopen_tables::after {
+    white-space: nowrap;
+    pointer-events: none;
+    content: 'Reabrir mesa';
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #ffffff;
+    font-size: 12px;
+    opacity: 0;
+    padding: 10px 8px;
+    border-radius: 4px;
+    position: absolute;
+    right: 55px;
+    z-index: 1000000;
+}
+
+.reopen_tables:hover::after {
+    opacity: 1;
+}
+
+.reopen_tables:before {
+    content: '';
+    border-style: solid;
+    position: absolute;
+    border-width: 8px;
+    border-color: transparent transparent transparent rgba(0, 0, 0, 0.85);
+    left: -3px;
+    top: 9px;
+    opacity: 0;
+}
+
+.reopen_tables:hover::before {
+    opacity: 1;
+    z-index: 1000000;
+}
+
+.refresh_tables::after {
+    white-space: nowrap;
+    pointer-events: none;
+    content: 'Atualizar';
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #ffffff;
+    font-size: 12px;
+    opacity: 0;
+    padding: 10px 8px;
+    border-radius: 4px;
+    position: absolute;
+    right: 55px;
+    z-index: 1000000;
+}
+
+.refresh_tables:hover::after {
+    opacity: 1;
+}
+
+.refresh_tables:before {
+    content: '';
+    border-style: solid;
+    position: absolute;
+    border-width: 8px;
+    border-color: transparent transparent transparent rgba(0, 0, 0, 0.85);
+    left: -3px;
+    top: 9px;
+    opacity: 0;
+}
+
+.refresh_tables:hover::before {
+    opacity: 1;
+    z-index: 1000000;
+}
+
+.closed_tables::after {
+    white-space: nowrap;
+    pointer-events: none;
+    content: 'Mesas fechadas';
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #ffffff;
+    font-size: 12px;
+    opacity: 0;
+    padding: 10px 8px;
+    border-radius: 4px;
+    position: absolute;
+    right: 55px;
+    z-index: 1000000;
+}
+
+.closed_tables:hover::after {
+    opacity: 1;
+}
+
+.closed_tables:before {
+    content: '';
+    border-style: solid;
+    position: absolute;
+    border-width: 8px;
+    border-color: transparent transparent transparent rgba(0, 0, 0, 0.85);
+    left: -3px;
+    top: 9px;
+    opacity: 0;
+}
+
+.closed_tables:hover::before {
+    opacity: 1;
+    z-index: 1000000;
+}
+
+.closed_commands::after {
+    white-space: nowrap;
+    pointer-events: none;
+    content: 'Comandas fechadas';
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #ffffff;
+    font-size: 12px;
+    opacity: 0;
+    padding: 10px 8px;
+    border-radius: 4px;
+    position: absolute;
+    right: 55px;
+    z-index: 1000000;
+}
+
+.closed_commands:hover::after {
+    opacity: 1;
+}
+
+.closed_commands:before {
+    content: '';
+    border-style: solid;
+    position: absolute;
+    border-width: 8px;
+    border-color: transparent transparent transparent rgba(0, 0, 0, 0.85);
+    left: -3px;
+    top: 9px;
+    opacity: 0;
+}
+
+.closed_commands:hover::before {
+    opacity: 1;
+    z-index: 1000000;
+}
+
+.closed_delivery::after {
+    white-space: nowrap;
+    pointer-events: none;
+    content: 'Delivery para entrega';
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #ffffff;
+    font-size: 12px;
+    opacity: 0;
+    padding: 10px 8px;
+    border-radius: 4px;
+    position: absolute;
+    right: 55px;
+    z-index: 1000000;
+}
+
+.closed_delivery:hover::after {
+    opacity: 1;
+}
+
+.closed_delivery:before {
+    content: '';
+    border-style: solid;
+    position: absolute;
+    border-width: 8px;
+    border-color: transparent transparent transparent rgba(0, 0, 0, 0.85);
+    left: -3px;
+    top: 9px;
+    opacity: 0;
+}
+
+.closed_delivery:hover::before {
+    opacity: 1;
+    z-index: 1000000;
+}
+
+.clear_list_products::after {
+    white-space: nowrap;
+    pointer-events: none;
+    content: 'Limpar';
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #ffffff;
+    font-size: 12px;
+    opacity: 0;
+    padding: 10px 8px;
+    border-radius: 4px;
+    position: absolute;
+    right: 55px;
+    z-index: 1000000;
+}
+
+.clear_list_products:hover::after {
+    opacity: 1;
+}
+
+.clear_list_products:before {
+    content: '';
+    border-style: solid;
+    position: absolute;
+    border-width: 8px;
+    border-color: transparent transparent transparent rgba(0, 0, 0, 0.85);
+    left: -3px;
+    top: 9px;
+    opacity: 0;
+}
+
+.clear_list_products:hover::before {
+    opacity: 1;
+    z-index: 1000000;
+}
+
+.remove_tax::after {
+    white-space: nowrap;
+    pointer-events: none;
+    content: 'Remover ou adicionar taxa';
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #ffffff;
+    font-size: 12px;
+    opacity: 0;
+    padding: 10px 8px;
+    border-radius: 4px;
+    position: absolute;
+    right: 60px;
+    z-index: 1000000;
+}
+
+.remove_tax:hover::after {
+    opacity: 1;
+}
+
+.remove_tax:before {
+    content: '';
+    border-style: solid;
+    position: absolute;
+    border-width: 8px;
+    border-color: transparent transparent transparent rgba(0, 0, 0, 0.85);
+    left: -2px;
+    top: 9px;
+    opacity: 0;
+}
+
+.remove_tax:hover::before {
+    opacity: 1;
+    z-index: 1000000;
+}
+
+.printer_itens_table::after {
+    white-space: nowrap;
+    pointer-events: none;
+    content: 'Reimpressão';
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #ffffff;
+    font-size: 12px;
+    opacity: 0;
+    padding: 10px 8px;
+    border-radius: 4px;
+    position: absolute;
+    right: 55px;
+    z-index: 1000000;
+}
+
+.printer_itens_table:hover::after {
+    opacity: 1;
+}
+
+.printer_itens_table:before {
+    content: '';
+    border-style: solid;
+    position: absolute;
+    border-width: 8px;
+    border-color: transparent transparent transparent rgba(0, 0, 0, 0.85);
+    left: -3px;
+    top: 9px;
+    opacity: 0;
+}
+
+.printer_itens_table:hover::before {
+    opacity: 1;
+    z-index: 1000000;
+}
+
+@media only screen and (max-width: 1366px) and (min-width: 1285px) {
+    .path {
+        zoom: 0.93;
+    }
+}
+
+@media only screen and (max-width: 1284px) and (min-width: 1178px) {
+    .path {
+        zoom: 0.87;
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+    .path {
+        zoom: 1.1;
+    }
+}

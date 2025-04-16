@@ -1,0 +1,32 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Instalando Dependências</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                padding: 20px;
+            }
+            #progress-text {
+                margin-top: 20px;
+                white-space: pre-wrap;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Instalando Dependências...</h1>
+        <div id="progress-text">Aguarde, instalando pacotes...</div>
+    </body>
+    <script>
+        const { ipcRenderer } = require('electron');
+
+        ipcRenderer.on('npm-install-progress', (event, progress) => {
+            const progressText = document.getElementById('progress-text');
+            if (progressText) {
+                progressText.innerText = progress; // Atualiza o texto com o progresso
+            }
+        });
+    </script>
+</html>
